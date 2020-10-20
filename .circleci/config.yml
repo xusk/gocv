@@ -35,6 +35,8 @@ jobs:
               OPENCV_ENABLE_NONFREE: ON
 
   test-opencv-gpu:
+    machine:
+      - image: ubuntu-1604-cuda-10.1:201909-23
     docker:
       - image: gocv/opencv:4.5.0-gpu
     working_directory: /usr/local/go/src/github.com/hybridgroup/gocv
