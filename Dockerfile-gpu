@@ -1,16 +1,14 @@
 ###################
 #  GoCV + OpenCV  #
 ###################
-FROM gocv/opencv:4.5.0-gpu
+FROM gocv/opencv:4.5.0-gpu AS gocv-gpu-test
 LABEL maintainer="hybridgroup"
 
 ENV GOPATH /go
-WORKDIR $GOPATH
 
-RUN go get -u -d gocv.io/x/gocv
+COPY . /go/src/gocv.io/x/gocv
+WORKDIR /go/src/gocv.io/x/gocv
 
-WORKDIR ${GOPATH}/src/gocv.io/x/gocv/cmd/cuda/
+RUN go build -tags example -o /build/gocv_cuda_version ./cmd/cuda/
 
-RUN go build -o gocv_cuda_version -i main.go
-
-CMD ["./gocv_cuda_version"]
+CMD ["/build/gocv_cuda_version"]
