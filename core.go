@@ -860,6 +860,10 @@ func AbsDiff(src1, src2 Mat, dst *Mat) {
 	C.Mat_AbsDiff(src1.p, src2.p, dst.p)
 }
 
+func Abs(src1 Mat, dst *Mat) {
+	C.Mat_Abs(src1.p, dst.p)
+}
+
 // Add calculates the per-element sum of two arrays or an array and a scalar.
 //
 // For further details, please see:

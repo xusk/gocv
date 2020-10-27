@@ -339,6 +339,10 @@ void Mat_AbsDiff(Mat src1, Mat src2, Mat dst) {
     cv::absdiff(*src1, *src2, *dst);
 }
 
+void Mat_Abs(Mat src1, Mat dst) {
+    *dst = cv::Mat(cv::abs(*src1));
+}
+
 void Mat_Add(Mat src1, Mat src2, Mat dst) {
     cv::add(*src1, *src2, *dst);
 }
